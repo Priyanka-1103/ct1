@@ -1,0 +1,44 @@
+/*Priyanka Choudhary
+  2010990552
+  Set no-03
+  Question 2 */
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    //enter size of array
+    int n;
+    cout<<"Enter size of array  "<<endl;
+    cin>>n;
+
+    //taking the array inputs
+    cout<<"Enter the Array Elements: "<<endl;
+    vector<int> arr(n);
+    for(auto &i: arr) cin>>i;
+    cout<<endl;
+    //entering the target pair
+    int target;
+    cout<<"Enter the value of Target "<<endl;;
+    cin>>target;
+
+    unordered_set<int> s;
+
+    vector<vector<int>> ans;
+
+
+    for(auto &i: arr){
+
+        if(s.find(target-i) != s.end()){
+            ans.push_back({i, target-i});
+        }
+        s.insert(i);
+    }
+
+    if(ans.size() == 0){
+        cout<<"Pair not found"<<endl;
+    }
+    else{
+        for(auto &v: ans){
+            cout<<"Pair Found ("<<v[0]<<","<<v[1]<<")"<<endl;
+        }
+    }
+}
